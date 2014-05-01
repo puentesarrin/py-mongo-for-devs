@@ -1,0 +1,14 @@
+.DS_Store
+*.nja
+*.pyc
+*.so
+*~
+build/*
+dist/*
+distribute-*
+*.egg/*
+*.egg-info/*
+_build/*
+.tox/*
+.coverage
+htmlcov/*
