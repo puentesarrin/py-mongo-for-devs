@@ -1,0 +1,851 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+--><!DOCTYPE html>
+
+
+<html>
+<head>
+  <title>¿Qué es Python? &mdash; Python y MongoDB para desarrolladores</title>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <link rel="stylesheet" media="all"
+        href="_static/theme/css/default.css">
+  <link rel="stylesheet" media="all"
+        href="_static/theme/css/hieroglyph.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)"
+        href="_static/theme/css/phone.css">
+
+    
+
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2014.04.28',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+
+    <script data-main="_static/js/slides"
+            src="_static/js/require-1.0.8.min.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <link rel="top" title="Python y MongoDB para desarrolladores" href="#" /> 
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+  <aside class="gdbar"><img src="http://gravatar.com/avatar/b6eb50140aac66cceaad8d85ba69bed7"></aside>
+  <hgroup class="auto-fadein">
+    <h1 data-config-title="">Python y MongoDB para desarrolladores</h1>
+    <h2 data-config-subtitle=""></h2>
+    <p data-config-presenter="">Jorge Puente-Sarrín<br></p>
+  </hgroup>
+</slide>
+
+  
+    <slide class="level-1">
+    <hgroup>
+      <h1>¿Qué es Python?</h1>
+    </hgroup>
+    <article class="">
+      <img alt="_images/python-logo.png" src="_images/python-logo.png" />
+<p>Es un lenguaje de programación interpretado cuya filosofía hace hincapié en una
+sintaxis muy limpia y que favorezca un código legible.</p>
+<p>Creado por Guido van Rossum en el año 1991.</p>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Intérprete Python</h2>
+    </hgroup>
+    <article class="">
+      <p>Es un programa que ejecuta código Python desde un archivo o de manera
+interactiva.</p>
+<img alt="_images/python-shell.png" src="_images/python-shell.png" />
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Variables y tipos</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s">&quot;Hola&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">&lt;type &#39;str&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">&lt;type &#39;int&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">&lt;type &#39;bool&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">imprime</span><span class="p">(</span><span class="n">cadena</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">cadena</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">imprime</span><span class="p">)</span>
+<span class="go">&lt;type &#39;function&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">imprime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">(</span><span class="s">&quot;Jorge&quot;</span><span class="p">)</span>
+<span class="go">Jorge</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Más variables y tipos</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 4, 4, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">&lt;type &#39;list&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">&lt;type &#39;tuple&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="go">&lt;type &#39;set&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">set([1, 2, 3, 4])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="go">&lt;type &#39;dict&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&#39;x&#39;</span><span class="p">])</span>
+<span class="go">13</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Operaciones matemáticas</h2>
+    </hgroup>
+    <article class="">
+      <p>Todas las clásicas, las que siempre encuentras en cualquier lenguaje.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">321</span> <span class="o">+</span> <span class="mi">123</span>
+<span class="go">444</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">321</span> <span class="o">-</span> <span class="mi">123</span>
+<span class="go">198</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">*</span> <span class="mi">123</span>
+<span class="go">15129</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">/</span> <span class="mi">123</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">123</span> <span class="o">%</span> <span class="mi">44</span>
+<span class="go">35</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Operaciones con cadenas</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;Esto es &#39;</span> <span class="o">+</span> <span class="s">&quot;una cadena&quot;</span>
+<span class="go">&#39;Esto es una cadena&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;Esto pasa a minúsculas&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;esto pasa a min\xa3sculas&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;Esto pasa a mayúsculas&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;ESTO PASA A MAY\xa3SCULAS&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;Separa por espacios&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[&#39;Separa&#39;, &#39;por&#39;, &#39;espacios&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s">&#39;Junta&#39;</span><span class="p">,</span> <span class="s">&#39;las&#39;</span><span class="p">,</span> <span class="s">&#39;cadenas&#39;</span><span class="p">])</span>
+<span class="go">&#39;Junta las cadenas&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;Reemplaza esto&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;esto&#39;</span><span class="p">,</span> <span class="s">&#39;por esto otro&#39;</span><span class="p">)</span>
+<span class="go">&#39;Reemplaza por esto otro&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;</span><span class="si">%s</span><span class="s"> + </span><span class="si">%s</span><span class="s"> = </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">&#39;1 + 2 = 3&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;</span><span class="si">%(uno)s</span><span class="s"> + </span><span class="si">%(uno)s</span><span class="s"> = </span><span class="si">%(dos)s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">{</span><span class="s">&#39;uno&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;dos&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="go">&#39;1 + 1 = 2&#39;</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Operaciones con listas</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="ow">in</span> <span class="n">lista</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;x&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lista</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="go">[1, 2, 3, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+<span class="go">[1, 2, 3, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Operaciones con diccionarios</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">calificaciones</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;alumno1&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s">&#39;alumno2&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&#39;alumno3&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calificaciones</span><span class="p">[</span><span class="s">&#39;alumno1&#39;</span><span class="p">]</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calificaciones</span><span class="p">[</span><span class="s">&#39;alumno4&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">calificaciones</span><span class="p">)</span>
+<span class="go">{&#39;alumno3&#39;: 15, &#39;alumno2&#39;: 12, &#39;alumno1&#39;: 13, &#39;alumno4&#39;: 13}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;alumno5&#39;</span> <span class="ow">in</span> <span class="n">calificaciones</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span><span class="p">(</span><span class="n">calificaciones</span><span class="p">[</span><span class="s">&#39;alumno1&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">calificaciones</span><span class="p">)</span>
+<span class="go">{&#39;alumno3&#39;: 15, &#39;alumno2&#39;: 12, &#39;alumno4&#39;: 13}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calificaciones</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">[&#39;alumno3&#39;, &#39;alumno2&#39;, &#39;alumno4&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calificaciones</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="go">[15, 12, 13]</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Operaciones lógicas</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">7</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="o">&gt;=</span> <span class="mi">5</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&lt;=</span> <span class="mi">7</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;hola&#39;</span> <span class="o">==</span> <span class="s">&#39;Hola&#39;</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;hola&#39;</span> <span class="ow">is</span> <span class="s">&#39;HOla&#39;</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;hola&#39;</span> <span class="o">!=</span> <span class="s">&#39;HOla&#39;</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;hola&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s">&#39;HOla&#39;</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&#39;Python&#39;</span> <span class="ow">in</span> <span class="s">&#39;Python y MongoDB&#39;</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Flujos de control</h2>
+    </hgroup>
+    <article class="">
+      <p>Condicionales y bucles.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">numero</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">numero</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Es par.&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Es impar.&#39;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Es impar.</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">3</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Comentarios</h2>
+    </hgroup>
+    <article class="">
+      <p>Los comentarios como en muchos lenguajes sirven para añadir notas entre las
+líneas de código.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Este es un comentario en una sola línea.</span>
+<span class="sd">&quot;&quot;&quot;Este es un comentario mucho más extenso que necesariamente tiene</span>
+<span class="sd">que estar en muchas líneas.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Pero en Python puede ser usado como documentación de un objeto.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">imprime</span><span class="p">(</span><span class="n">cadena</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="sd">&quot;&quot;&quot;Ésta es la documentación de la función.&quot;&quot;&quot;</span>
+<span class="gp">... </span>   <span class="k">print</span><span class="p">(</span><span class="n">cadena</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">imprime</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
+<span class="go">Ésta es la documentación de la función.</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>¿Qué es MongoDB?</h2>
+    </hgroup>
+    <article class="">
+      <img alt="_images/mongodb-logo.png" src="_images/mongodb-logo.png" />
+<p>Es una base de datos no relacional, open-source, orientada a documentos y
+diseñada para facilitar el desarrollo y la escalabilidad.</p>
+<p>Creado por MongoDB Inc. (antes 10gen) en el año 2009.</p>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Documento <em>BSON</em></h2>
+    </hgroup>
+    <article class="">
+      <p><a class="reference external" href="http://bsonspec.org">http://bsonspec.org</a></p>
+<p>Podría decirse que es una extensión de JSON para soportar otros tipos de datos
+más.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526ad8a83b261c2aaf1a5bfc&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nombre&quot;</span><span class="o">:</span> <span class="s2">&quot;Jorge&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;apellidos&quot;</span><span class="o">:</span> <span class="s2">&quot;Puente Sarrín&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;registro&quot;</span><span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2013-10-25T20:46:39.258Z&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Documentos vinculados</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c056&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;titulo&quot;</span><span class="o">:</span> <span class="s2">&quot;Mi primera publicación&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contenido&quot;</span><span class="o">:</span> <span class="s2">&quot;Esta es mi primera publicación ... Fin.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fecha&quot;</span><span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2013-10-20T21:29:54.626Z&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c057&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;publicacion&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c056&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;texto&quot;</span><span class="o">:</span> <span class="s2">&quot;Excelente post!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fecha&quot;</span><span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2013-10-22T22:19:14.246Z&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c058&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;publicacion&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c056&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;texto&quot;</span><span class="o">:</span> <span class="s2">&quot;No me gustó nada!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fecha&quot;</span><span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2013-10-25T18:24:13.231Z&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Documentos embebidos</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c056&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;titulo&quot;</span><span class="o">:</span> <span class="s2">&quot;Mi primera publicación&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contenido&quot;</span><span class="o">:</span> <span class="s2">&quot;Esta es mi primera publicación ... Fin.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fecha&quot;</span><span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2013-10-20T21:29:54.626Z&quot;</span><span class="p">)</span>
+    <span class="s2">&quot;comentarios&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c057&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;publicacion&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c056&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;texto&quot;</span><span class="o">:</span> <span class="s2">&quot;Excelente post!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fecha&quot;</span><span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2013-10-22T22:19:14.246Z&quot;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;_id&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c058&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;publicacion&quot;</span><span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;526aeccc1119551048c2c056&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;texto&quot;</span><span class="o">:</span> <span class="s2">&quot;No me gustó nada!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fecha&quot;</span><span class="o">:</span> <span class="nx">ISODate</span><span class="p">(</span><span class="s2">&quot;2013-10-25T18:24:13.231Z&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Shell <tt class="docutils literal"><span class="pre">mongo</span></tt></h2>
+    </hgroup>
+    <article class="">
+      <p>Es un programa interactivo JavaScript para acceder a MongoDB.</p>
+<img alt="_images/mongo-shell.png" src="_images/mongo-shell.png" />
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Inserciones</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-sql"><div class="highlight"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">usuarios</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">nombre</span><span class="p">,</span> <span class="n">apellidos</span><span class="p">,</span> <span class="n">correo</span><span class="p">)</span>
+<span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;puentesarrin&#39;</span><span class="p">,</span> <span class="s1">&#39;Jorge&#39;</span><span class="p">,</span> <span class="s1">&#39;Puente Sarrín&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;puentesarrin@gmail.com&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;nombre&quot;</span><span class="o">:</span> <span class="s2">&quot;Jorge&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;apellidos&quot;</span><span class="o">:</span> <span class="s2">&quot;Puente Sarrín&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin@gmail.com&quot;</span><span class="p">});</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Consultas</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">usuarios</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuario</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Con filtros:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">usuarios</span> <span class="k">WHERE</span> <span class="n">usuario</span> <span class="o">=</span> <span class="s1">&#39;puentesarrin&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">find</span></tt> siempre devuelve un cursor, para consultar sólo un documento
+<tt class="docutils literal"><span class="pre">findOne</span></tt>.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span><span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Más consultas...</h2>
+    </hgroup>
+    <article class="">
+      <p>Con proyección:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">correo</span> <span class="k">FROM</span> <span class="n">usuarios</span> <span class="k">WHERE</span> <span class="n">usuario</span> <span class="o">=</span> <span class="s1">&#39;puentesarrin&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Con ordenamiento:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">correo</span> <span class="k">FROM</span> <span class="n">usuarios</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">correo</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span> <span class="p">{</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">sort</span><span class="p">({</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Aun más consultas...</h2>
+    </hgroup>
+    <article class="">
+      <p>Con límites:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">correo</span> <span class="k">FROM</span> <span class="n">usuarios</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">correo</span> <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span> <span class="p">{</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">sort</span><span class="p">({</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Haciendo saltos:</p>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">correo</span> <span class="k">FROM</span> <span class="n">usuarios</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">correo</span> <span class="k">LIMIT</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span>
+    <span class="p">{</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">sort</span><span class="p">({</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">}).</span><span class="nx">skip</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Actualizaciones</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">usuarios</span>
+<span class="k">SET</span> <span class="n">correo</span> <span class="o">=</span> <span class="s1">&#39;jorge@puentesarr.in&#39;</span>
+<span class="k">WHERE</span> <span class="n">usuario</span> <span class="o">=</span> <span class="s1">&#39;puentesarrin&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">},</span>
+                   <span class="p">{</span><span class="nx">$set</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="s2">&quot;jorge@puentesarr.in&quot;</span><span class="p">}});</span>
+</pre></div>
+</div>
+<p>Por defecto, sólo modifica el primer documento encontrado.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">},</span>
+                   <span class="p">{</span><span class="nx">$set</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;correo&quot;</span><span class="o">:</span> <span class="s2">&quot;jorge@puentesarr.in&quot;</span><span class="p">}},</span>
+                   <span class="p">{</span><span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Eliminaciones</h2>
+    </hgroup>
+    <article class="">
+      <div class="highlight-sql"><div class="highlight"><pre><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">usuarios</span>
+<span class="k">WHERE</span> <span class="n">usuario</span> <span class="o">=</span> <span class="s1">&#39;puentesarrin&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">db</span><span class="p">.</span><span class="nx">usuarios</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="s2">&quot;usuario&quot;</span><span class="o">:</span> <span class="s2">&quot;puentesarrin&quot;</span><span class="p">});</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>¿Eso es todo?</h2>
+    </hgroup>
+    <article class="">
+      <ul class="build simple">
+<li>Colecciones con tope</li>
+<li>Colecciones TTL</li>
+<li>Índices: comunes, dispersos y compuestos</li>
+<li>Índices geoespaciales</li>
+<li>Índices geoespaciales esféricos</li>
+<li>Índices de texto</li>
+<li>MapReduce</li>
+<li>Aggregation Framework</li>
+<li>RESTful API</li>
+<li>GridFS</li>
+<li>FullText Search</li>
+</ul>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Replicación</h2>
+    </hgroup>
+    <article class="">
+      <p>Sincronización de datos a través de múltiples servidores. Provee redundancia y
+disponibilidad de datos.</p>
+<img alt="_images/replica-set.png" src="_images/replica-set.png" />
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Sharding</h2>
+    </hgroup>
+    <article class="">
+      <p>Distribución y particionamiento de datos a través de múltiples servidores.
+Provee escalabilidad horizontal.</p>
+<img alt="_images/sharding.png" src="_images/sharding.png" />
+
+
+
+
+    </article>
+  </slide>  <slide class="level-1">
+    <hgroup>
+      <h1>¿Cómo uso MongoDB desde Python?</h1>
+    </hgroup>
+    <article class="">
+      
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Driver PyMongo</h2>
+    </hgroup>
+    <article class="">
+      <p><a class="reference external" href="http://api.mongodb.org/python/current/">http://api.mongodb.org/python/current/</a></p>
+<p>Librería cliente que da acceso fácil a la base de datos, escribir código con
+PyMongo es tan fácil como escribir en el shell <tt class="docutils literal"><span class="pre">mongo</span></tt>.</p>
+<p>Establecemos conexión.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">mibasededatos</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="s">&#39;mongodb://201.134.9.122&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s">&#39;mibasededatos&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;201.134.9.122&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">27018</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">mibasededatos</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Operaciones desde el driver</h2>
+    </hgroup>
+    <article class="">
+      <p>Inserción.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s">&#39;usuario&#39;</span><span class="p">:</span> <span class="s">&#39;puentesarrin&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s">&#39;nombre&#39;</span><span class="p">:</span> <span class="s">&#39;Jorge&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s">&#39;apellidos&#39;</span><span class="p">:</span> <span class="s">u&#39;Puente Sarrín&#39;</span><span class="p">})</span>
+<span class="go">ObjectId(&#39;526adeb81119551048c2c055&#39;)</span>
+</pre></div>
+</div>
+<p>Consulta.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find_one</span><span class="p">({</span><span class="s">&#39;usuario&#39;</span><span class="p">:</span> <span class="s">&#39;puentesarrin&#39;</span><span class="p">})</span>
+<span class="go">{u&#39;_id&#39;: ObjectId(&#39;526adeb81119551048c2c055&#39;), u&#39;usuario&#39;: u&#39;puentesarrin&#39;,</span>
+<span class="go">u&#39;nombre&#39;: &#39;Jorge&#39;, u&#39;apellidos&#39;: &#39;Puente Sarr\xedn&#39;}</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Más operaciones desde el driver</h2>
+    </hgroup>
+    <article class="">
+      <p>Actualización.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;usuario&#39;</span><span class="p">:</span> <span class="s">&#39;puentesarrin&#39;</span><span class="p">},</span>
+<span class="gp">... </span>                   <span class="p">{</span><span class="s">&#39;$set&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;correo&#39;</span><span class="p">:</span> <span class="s">&#39;jorge@puentesarr.in&#39;</span><span class="p">}})</span>
+<span class="go">{&#39;updatedExisting&#39;: True, u&#39;nModified&#39;: 1, u&#39;ok&#39;: 1, u&#39;n&#39;: 1}</span>
+</pre></div>
+</div>
+<p>Eliminación.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span><span class="s">&#39;usuario&#39;</span><span class="p">:</span> <span class="s">&#39;puentesarrin&#39;</span><span class="p">})</span>
+<span class="go">{u&#39;ok&#39;: 1, u&#39;n&#39;: 1}</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>MongoEngine</h2>
+    </hgroup>
+    <article class="">
+      <p><a class="reference external" href="http://docs.mongoengine.org/">http://docs.mongoengine.org/</a></p>
+<p>Es un ODM (como ORM, pero para documentos) para MongoDB. Es probablemente el
+más usado.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">mongoengine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;mibasededatos&#39;</span><span class="p">)</span>
+<span class="go">MongoClient(&#39;localhost&#39;, 27017)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Usuario</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">correo</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">nombre</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">apellidos</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yo</span> <span class="o">=</span> <span class="n">Usuario</span><span class="p">(</span><span class="n">correo</span><span class="o">=</span><span class="s">&#39;puentesarrin@gmail.com&#39;</span><span class="p">,</span>
+<span class="gp">... </span>             <span class="n">nombre</span><span class="o">=</span><span class="s">&#39;Jorge&#39;</span><span class="p">,</span>
+<span class="gp">... </span>             <span class="n">apellidos</span><span class="o">=</span><span class="s">u&#39;Puente Sarrín&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">usuario</span> <span class="ow">in</span> <span class="n">Usuario</span><span class="o">.</span><span class="n">objects</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">usuario</span><span class="o">.</span><span class="n">correo</span><span class="p">)</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Motor</h2>
+    </hgroup>
+    <article class="">
+      <p><a class="reference external" href="http://motor.readthedocs.org/">http://motor.readthedocs.org/</a></p>
+<p>Driver asíncrono para Tornado. Es un <em>wrapper</em> de PyMongo que utiliza
+<strong>Greenlets</strong>.</p>
+<div class="highlight-pycon"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">motor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">ioloop</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span> <span class="o">=</span> <span class="n">motor</span><span class="o">.</span><span class="n">MotorClient</span><span class="p">()</span><span class="o">.</span><span class="n">mibasededatos</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">request_callback</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s">&#39;usuario&#39;</span><span class="p">:</span> <span class="s">&#39;puentesarrin&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s">&#39;nombre&#39;</span><span class="p">:</span> <span class="s">&#39;Jorge&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="s">&#39;apellidos&#39;</span><span class="p">:</span> <span class="s">u&#39;Puente Sarrín&#39;</span><span class="p">},</span>
+<span class="gp">... </span>                   <span class="n">callback</span><span class="o">=</span><span class="n">request_callback</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ioloop</span><span class="o">.</span><span class="n">IOLoop</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="go">53627af456c02c0d135bf1e0, None</span>
+</pre></div>
+</div>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-1">
+    <hgroup>
+      <h1>¿Dónde podemos aprender más?</h1>
+    </hgroup>
+    <article class="">
+      
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>Recursos en línea</h2>
+    </hgroup>
+    <article class="">
+      <p>Documentación</p>
+<p><a class="reference external" href="http://docs.mongodb.org/manual">http://docs.mongodb.org/manual</a></p>
+<p>MongoDB User Group Perú</p>
+<ul class="simple">
+<li><a class="reference external" href="http://bit.ly/mongodbperu">http://bit.ly/mongodbperu</a></li>
+<li><a class="reference external" href="https://facebook.com/mongodbperu">https://facebook.com/mongodbperu</a></li>
+<li><a class="reference external" href="https://twitter.com/mongodbperu">https://twitter.com/mongodbperu</a></li>
+</ul>
+<p>Lista de correos</p>
+<p><a class="reference external" href="https://groups.google.com/group/mongodb-user">https://groups.google.com/group/mongodb-user</a></p>
+
+
+
+
+    </article>
+  </slide>  <slide class="level-2">
+    <hgroup>
+      <h2>MongoDB University</h2>
+    </hgroup>
+    <article class="">
+      <p>Cursos gratuitos de MongoDB para desarrolladores y administradores.</p>
+<p>M101P: MongoDB for Developers inició este 14 de abril pero aún puedes
+participar.</p>
+<p><a class="reference external" href="https://university.mongodb.com">https://university.mongodb.com</a></p>
+<ul class="build simple">
+<li>CRUD</li>
+<li>Diseño de esquemas</li>
+<li>Indexación</li>
+<li>Agregación</li>
+<li>Replicación</li>
+<li>Sharding</li>
+<li>Python, PyMongo, Bottle</li>
+<li><strong>¡Y EN ESPAÑOL!</strong></li>
+</ul>
+
+
+
+
+    </article>
+  </slide>
+
+
+  <slide class="thank-you-slide segue nobackground">
+  <aside class="gdbar right"><img src="http://gravatar.com/avatar/b6eb50140aac66cceaad8d85ba69bed7"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>&iexcl;Gracias!</h2>
+  </article>
+  <p class="auto-fadein" data-config-contact></p>
+</slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
