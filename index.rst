@@ -608,8 +608,7 @@ MongoDB University
 
 Cursos gratuitos de MongoDB para desarrolladores y administradores.
 
-M101P: MongoDB for Developers inició este 14 de abril pero aún puedes
-participar.
+M101P: MongoDB for Developers inicia este 28 de octubre y puedes participar.
 
 https://university.mongodb.com
 
