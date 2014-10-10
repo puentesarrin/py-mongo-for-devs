@@ -595,6 +595,7 @@ http://docs.mongodb.org/manual
 
 MongoDB User Group Perú
 
+- http://mongodbperu.com
 - http://bit.ly/mongodbperu
 - https://facebook.com/mongodbperu
 - https://twitter.com/mongodbperu
